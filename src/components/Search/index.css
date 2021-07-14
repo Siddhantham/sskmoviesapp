@@ -1,0 +1,19 @@
+* {
+  margin: 0px;
+}
+.search-input-container {
+  background-color: black;
+  padding: 0px;
+  margin: 0px;
+}
+
+.container {
+  display: flex;
+  border-color: #fff;
+  margin: 2px;
+  border-width: 2px;
+  border-style: soid;
+}
+.search-icon {
+  height: 16px;
+}
