@@ -5,8 +5,9 @@ import Top from '../Navbar'
 const apiKey = 'e202605be51fda15275be801c94fd004'
 
 class SpecificMovie extends Component {
+  state = {movieData: []}
+
   searchMovies = async () => {
-    let newData
     const {match} = this.props
     const {params} = match
     const {id} = params
@@ -17,28 +18,32 @@ class SpecificMovie extends Component {
     const response = await fetch(url, options)
     if (response.ok === true) {
       const data = await response.json()
-      const updatedData = data.results.map(result => ({
-        backdropPath: result.backdrop_path,
-        originalTitle: result.original_title || result.original_name,
-        posterPath: result.poster_path,
-        id: result.id,
-      }))
-      newData = updatedData
+      const updatedData = {
+        backdropPath: `${data.backdrop_path}`,
+        originalTitle: `${data.original_title}` || `${data.original_name}`,
+        posterPath: `${data.poster_path}`,
+        id: `${data.id}`,
+      }
+
+      this.setState({movieData: updatedData})
     }
-    return newData
   }
 
   render() {
-    const searchMoviesData = this.searchMovies
-    console.log(searchMoviesData)
+    const {movieData} = this.state
+    const {backdropPath} = movieData
     return (
       <div className="bg">
         <Top />
+        <button type="button" onClick={this.searchMovies}>
+          Rey Vachindha data
+        </button>
+        <h1>{movieData.backdropPath}</h1>
         <img
-          src={`https://image.tmdb.org/t/p/original/${searchMoviesData.backdropPath}`}
-          alt="specific poster"
+          src={`https://image.tmdb.org/t/p/original${backdropPath}`}
+          alt="jaffa"
+          className="image-logo"
         />
-        <p>.</p>
       </div>
     )
   }

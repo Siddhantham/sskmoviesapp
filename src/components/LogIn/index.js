@@ -27,7 +27,8 @@ class LogIn extends Component {
     this.setState({password: event.target.value})
   }
 
-  onSubmitSuccess = jwtToken => {
+  onSubmitSuccess = (jwtToken, username) => {
+    localStorage.setItem('username', username)
     const {history} = this.props
     Cookies.set('jwt_token', jwtToken, {
       expires: 30,
@@ -75,7 +76,7 @@ class LogIn extends Component {
     console.log(data)
     console.log(data.request_token)
     if (response.ok === true) {
-      this.onSubmitSuccess(data.request_token)
+      this.onSubmitSuccess(data.request_token, username)
     } else {
       this.onSubmitFailure('Please enter a valid Email and  Password')
     }

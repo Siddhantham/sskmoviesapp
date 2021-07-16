@@ -22,10 +22,6 @@ class SearchIcon extends Component {
     }
   }
 
-  updateInput = value => {
-    this.setState({searchInput: value}, this.searchMovies)
-  }
-
   onDecrementCount = () => {
     const {number, searchInput} = this.state
     if (number <= 1) {
@@ -56,6 +52,12 @@ class SearchIcon extends Component {
         lengthData: data.results.length,
       })
     }
+  }
+
+  updateInput = value => {
+    const {number} = this.state
+    this.setState({searchInput: value}, this.searchMovies)
+    this.searchMovies(apiKey, number, value)
   }
 
   render() {

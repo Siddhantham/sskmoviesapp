@@ -1,24 +1,26 @@
 import {withRouter} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import './index.css'
-import Header from '../Navbar'
+import Top from '../Navbar'
 
 const Account = props => {
   const onClickLogout = () => {
+    localStorage.removeItem('username')
     const {history} = props
     Cookies.remove('jwt_token')
     history.replace('/LogIn')
   }
+  const userName = localStorage.getItem('username')
   return (
     <>
-      <Header />
+      <Top />
       <div className="account-cont">
         <h1>Account</h1>
         <hr />
         <div className="membership-cont">
           <p className="sub-head">Member Ship</p>
           <div className="details">
-            <p>sai@120</p>
+            <p>{userName}</p>
             <p className="sub-head">password:*********</p>
           </div>
         </div>

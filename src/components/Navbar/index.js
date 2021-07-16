@@ -31,10 +31,12 @@ class Top extends Component {
       <nav className="nav-header">
         <div className="container-pages">
           <div className="images-movies">
-            <img
-              src="https://res.cloudinary.com/dbzwiigl5/image/upload/v1625823588/Group_7399_zjhuem.png"
-              alt="MOVIES"
-            />
+            <Link to="/">
+              <img
+                src="https://res.cloudinary.com/dbzwiigl5/image/upload/v1625823588/Group_7399_zjhuem.png"
+                alt="MOVIES"
+              />
+            </Link>
           </div>
           <ul className="pages-list">
             <li className="pages-cont">
@@ -70,7 +72,7 @@ class Top extends Component {
             </Link>
           </button>
           <button type="button" className="button-img">
-            <Link to="account-details">
+            <Link to="/ProfileDetails">
               <img
                 className="button-img"
                 src="https://res.cloudinary.com/dbzwiigl5/image/upload/v1626086256/pngarea.com_mexico-png-avatar-5646242_iwkm3x.png"

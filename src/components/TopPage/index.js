@@ -1,11 +1,12 @@
 import {Component} from 'react'
 import './index.css'
-import Header from '../Navbar'
+import Top from '../Navbar'
 
 class TopHome extends Component {
   render() {
     const {dataList} = this.props
     const {backdropPath, id, originalTitle, overview} = dataList
+    console.log(backdropPath)
     return (
       <div
         key={id}
@@ -14,7 +15,7 @@ class TopHome extends Component {
         }}
         className="container-top"
       >
-        <Header />
+        <Top />
         <div className="content-cont">
           <h1>{originalTitle}</h1>
           <p>{overview}</p>

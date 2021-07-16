@@ -22,7 +22,7 @@ const App = () => (
       <Route exact path="/popularMovies" component={Popular} />
       <Route exact path="/Search" component={SearchIcon} />
       <Route exact path="/Specific/:id" component={SpecificMovie} />
-      <Route exact path="/account-details" component={Account} />
+      <Route exact path="/ProfileDetails" component={Account} />
     </Switch>
   </BrowserRouter>
 )
